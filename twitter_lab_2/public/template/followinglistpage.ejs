@@ -1,0 +1,486 @@
+
+<div id="page-container" class="AppContent" ng-controller="FollowinglistController" ng-init="loadfollowing();">
+          
+ <div class="ProfileCanopy ProfileCanopy--withNav ProfileCanopy--large" style="
+    margin-top: -50px;
+"> 
+ <div class="ProfileCanopy-inner">
+
+    <div class="ProfileCanopy-header u-bgUserColor" style="margin-top: 0px; height: 175px; bachground-color: #0084b4!important;">
+    <div class="ProfileCanopy-headerBg">
+      <img alt="" class="u-hidden" style="transform: none;">
+          </div>
+   
+
+      <div id="header_image_upload_dialog" class="ProfileHeaderUploadDialog modal-container">
+  <div class="modal profile-header-modal">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="u-hidden">
+          <canvas class="drawsurface"></canvas>
+        </div>
+      </div>
+      <div class="ProfileHeaderUploadDialog-footer modal-footer">
+        <div class="ProfileHeaderUploadDialog-footerInner Grid">
+          <div class="Grid-cell u-before1of4 u-size3of4">
+            <div class="ProfileHeaderUploadDialog-footerContent Arrange">
+              <div class="ProfileHeaderUploadDialog-cropperHelp Arrange-sizeFit">
+                <div class="ProfileHeaderUploadDialog-cropperHelpTitle">
+                  Reposition &amp; scale header
+                </div>
+                <div class="ProfileHeaderUploadDialog-cropperHelpSubtitle">
+                  Some areas may be cropped on larger screens
+                </div>
+              </div>
+              <div class="ProfileHeaderUploadDialog-cropperSlider Arrange-sizeFill">
+                <span class="icon image-gray"></span><div class="cropper-slider"></div><span class="icon image-gray-large"></span>
+              </div>
+              <div class="ProfileHeaderUploadDialog-buttons Arrange-sizeFit">
+                <span class="ProfileHeaderUploadDialog-savingIndicator spinner-small spinner-dark-bg"></span>
+                <button type="button" class="btn profile-image-cancel js-close">Cancel</button>
+                <button type="button" class="btn primary-btn profile-image-save">Apply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="AppContainer">
+
+    <div class="ProfileCanopy-avatar">
+
+
+        <div class="ProfileAvatarEditing is-withAvatar">
+  <div class="ProfileAvatarEditing-placeholder u-bgUserColor"></div>
+<div class="ProfileAvatarEditing-container">
+    <img class="ProfileAvatarEditing-image avatar" style="background-color: #0084b4!important;">
+  </div>
+  <div class="ProfileAvatarEditing-overlay"></div>
+  <div class="ProfileAvatarEditing-iframeSaving">
+    <div class="ProfileAvatarEditing-iframeSavingHelp">
+      <span class="Icon Icon--clock"></span>
+      <p>Saving</p>
+    </div>
+  </div>
+  <div class="ProfileAvatarEditing-buttonContainer">
+  <button class="ProfileAvatarEditing-button u-boxShadowInsetUserColorHover" type="button" tabindex="2" style="
+    width: 190px;
+    height: 190px;
+    font-size: small;
+">     
+ <div class="ProfileAvatarEditing-addAvatarHelp">
+        <span class="Icon Icon--cameraPlus"></span>
+        <p>Add a profile photo</p>
+      </div>
+     <div class="ProfileAvatarEditing-changeAvatarHelp" style="
+    width: 200px;
+    height: 200px;
+">
+        <span class="Icon Icon--camera"></span>
+        <p style="font-size: 0.5em;margin-right: 25px;">Change your profile photo</p>
+      </div>
+      <div class="ProfileAvatarEditing-dropAvatarHelp" style="margin-right: 25px;">
+        <span class="Icon Icon--cameraPlus"></span>
+        <p>Drop profile photo here</p>
+      </div>
+    </button>
+  </div>
+    <div id="choose-photo" class="controls avatar-settings inline-upload-avatar dropdown center">
+      <div class="uploader-image uploader-avatar clearfix">
+        <div class="dropdown-menu">
+  <div class="dropdown-caret">
+    <span class="caret-outer"></span>
+    <span class="caret-inner"></span>
+  </div>
+  <ul>
+    <li id="photo-choose-existing" class="photo-choose-existing upload-photo">
+      <button type="button" class="dropdown-link">Upload photo</button>
+      <div class="photo-selector">
+  <button class="btn" type="button">
+      Change photo
+    </button>
+  <span class="photo-file-name">No file selected</span>
+  <div class="image-selector">
+    <input type="hidden" name="media_file_name" class="file-name">
+    <input type="hidden" name="media_data[]" class="file-data">
+    <label class="t1-label">
+      <span class="u-hiddenVisually">Add Photo</span>
+      <input type="file" name="media[]" class="file-input js-tooltip" tabindex="-1" accept="image/gif,image/jpeg,image/jpg,image/png" data-original-title="Add Photo">
+    </label>
+    <div class="swf-container"></div>
+  </div>
+</div>
+
+    </li>
+      <li id="photo-choose-webcam" class="">
+        <button type="button" class="dropdown-link">Take photo</button>
+      </li>
+    <li id="photo-delete-image" class="">
+      <button type="button" class="dropdown-link">Remove</button>
+    </li>
+      <li class="dropdown-divider" role="presentation"></li>
+      <li class="cancel-options">
+        <button type="button" class="dropdown-link">Cancel</button>
+      </li>
+  </ul>
+</div>
+<div class="webcam-detect swf-container" style="width: 0px; height: 0px; overflow: hidden;"><object data="/flash/1/WebcamDetector.swf" type="application/x-shockwave-flash" id="flash_449708750" width="1" height="1"><param name="wmode" value="transparent"><param name="AllowScriptAccess" value="sameDomain"><param name="movie" value="/flash/1/WebcamDetector.swf"></object></div>
+
+      </div>
+    </div>
+</div>
+
+    </div>
+
+
+    <div class="ProfileCanopy-headerPromptAnchor"></div>
+  </div>
+
+</div>
+
+
+    <div class="ProfileCanopy-navBar">
+      <div class="ProfilePage-editingOverlay"></div>
+
+      <div class="AppContainer">
+       <div class="Grid Grid--withGutter" >
+
+          <div class="Grid-cell u-size2of3 u-lg-size3of4" style="
+    margin-left: 300px;
+">
+            <div class="ProfileCanopy-nav">
+              
+  <div class="ProfileNav" role="navigation" data-user-id="2950433999">
+    <ul class="ProfileNav-list">
+<li class="ProfileNav-item ProfileNav-item--tweets is-active">
+          <a class="ProfileNav-stat ProfileNav-stat--link u-borderUserColor u-textCenter js-tooltip js-nav" data-nav="tweets" tabindex="-1" data-original-title="2 Tweets">
+            <span class="ProfileNav-label">Following</span>
+            <span class="ProfileNav-value" data-is-compact="false" id="tweetcount"></span>
+          </a>
+        </li><li class="ProfileNav-item ProfileNav-item--more dropdown is-hidden" style="">        <a class="ProfileNav-stat ProfileNav-stat--link ProfileNav-stat--moreLink js-dropdown-toggle" href="#more" role="button" aria-haspopup="true">
+          <span class="ProfileNav-label">&nbsp;</span>
+          <span class="ProfileNav-value">More <span class="ProfileNav-dropdownCaret Icon Icon--caretDown"></span></span>
+        </a>
+        <div class="dropdown-menu">
+          <div class="dropdown-caret">
+            <span class="caret-outer"></span>
+            <span class="caret-inner"></span>
+          </div>
+          <ul><li>
+              <a href="/i/likes" class="ProfileNav-dropdownItem ProfileNav-dropdownItem--favorites is-hidden u-bgUserColorHover u-bgUserColorFocus u-linkClean js-nav" style="">Likes</a></li></ul>
+        </div>
+      </li>
+ <button class="ProfilePage-saveButton btn primary-btn" ng-click="back();" tabindex="3" style="left: 400px;">Go Back </button>
+  <span class="ProfilePage-savingIndicator"><span class="spinner-small"></span>Saving...</span>
+ 
+
+
+    </ul>
+  </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+    <div class="AppContainer">
+      <div class="AppContent-main content-main u-cf" role="main" aria-labelledby="content-main-heading">
+        <div class="Grid Grid--withGutter" style="
+   			 height: 1457px;
+   			 width: 1200px;
+   			 margin-top: -150px;
+  			 margin-left: -600px;
+  			  ">
+          <div class="Grid-cell u-size1of3 u-lg-size1of4" >
+         </div>
+
+          <div class="Grid-cell u-size2of3 u-lg-size3of4">
+            <div class="Grid Grid--withGutter">
+                <div class="Grid-cell">
+                  <div class="js-profileClusterFollow"></div>
+                </div>
+
+              <div class="Grid-cell
+                    u-lg-size2of3
+              " data-test-selector="ProfileTimeline">
+                  
+                    <div class="ProfileHeading">
+  <div class="ProfileHeading-spacer"></div>
+    <div class="ProfileHeading-content
+      ">
+      <h2 id="content-main-heading" class="ProfileHeading-title u-hiddenVisually ">Following</h2>
+        <ul class="ProfileHeading-toggle">
+            <li class="ProfileHeading-toggleItem
+              
+              is-active
+              " data-element-term="tweets_toggle">
+                Following
+            </li>
+            <li class="ProfileHeading-toggleItem
+              
+              
+              u-textUserColor" data-element-term="tweets_with_replies_toggle">
+                <a class="ProfileHeading-toggleLink js-nav" href="/i_m_sidd6258/with_replies" data-nav="tweets_with_replies_toggle">
+                 <!--  Tweets &amp; replies -->
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+                  <div class="BlockedWarningTimeline">
+  <h2 class="BlockedWarningTimeline-heading" id="content-main-heading">@i_m_sidd6258 is blocked</h2>
+  <p class="BlockedWarningTimeline-explanation">Are you sure you want to view these Tweets? Viewing Tweets won't unblock @i_m_sidd6258.</p>
+
+  <button class="btn BlockedWarningTimeline-button">View Tweets</button>
+</div>
+                  
+
+
+
+
+  <div id="scroll-bump-dialog" class="ScrollBumpDialog modal-container">
+  <div class="close-modal-background-target"></div>
+  <div class="modal draggable">
+    <div class="modal-content clearfix">
+
+      <button type="button" class="modal-btn modal-close js-close">
+  <span class="Icon Icon--close Icon--medium">
+    <span class="visuallyhidden">Close</span>
+  </span>
+</button>
+
+
+      <div class="modal-header">
+        <h3 class="modal-title">
+            You followed
+            
+        </h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="loading">
+          <span class="spinner-bigger"></span>
+        </div>
+        <ol class="ScrollBumpDialog-usersList clearfix js-users-list"></ol>
+      </div>
+    </div>
+  </div>
+</div>
+    <div id="timeline">
+        <div class="stream-container  js-request-more-stream-items" data-max-position="584033369501081600">
+
+      <div class="stream-item js-new-items-bar-container">
+</div>
+
+    <div class="stream">
+        <ol class="stream-items js-navigable-stream" id="stream-items-id">
+          
+      <li class="js-stream-item stream-item stream-item expanding-stream-item
+" data-item-id="583913310963175424" id="stream-item-tweet-583913310963175424" data-item-type="tweet">
+      
+</li>
+        </ol>
+        <div class="stream-footer">
+  <div class="timeline-end has-items">
+    <div class="stream-end">
+  <div class="stream-end-inner">
+      <span class="Icon Icon--large Icon--logo"></span>
+
+    <p class="empty-text">
+        You haven't tweeted yet.
+
+    </p>
+
+          <p><button type="button" class="btn-link back-to-top hidden" style="display: inline-block;">Back to top ↑</button></p>
+
+  </div>
+</div>
+
+    <div class="stream-loading">
+  <div class="stream-end-inner">
+    <span class="spinner" title="Loading..."></span>
+  </div>
+</div>
+
+  </div>
+</div>
+<div class="stream-fail-container u-hidden" style="display: none;">
+    <div class="js-stream-whale-end stream-whale-end stream-placeholder centered-placeholder">
+  <div class="stream-end-inner">
+    <h2 class="title">Loading seems to be taking a while.</h2>
+    <p>
+      Twitter may be over capacity or experiencing a momentary hiccup. <a role="button" href="#" class="try-again-after-whale">Try again</a> or visit <a target="_blank" href="http://status.twitter.com">Twitter Status</a> for more information.
+    </p>
+  </div>
+</div>
+</div>
+
+      <ol class="hidden-replies-container"></ol>
+    </div>
+  </div>
+
+    </div>
+
+
+              </div>
+
+
+               
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  <div id="trends_dialog" class="trends-dialog modal-container">
+  <div class="close-modal-background-target"></div>
+  <div class="modal draggable">
+    <div class="modal-content">
+      <button type="button" class="modal-btn modal-close js-close">
+  <span class="Icon Icon--close Icon--medium">
+    <span class="visuallyhidden">Close</span>
+  </span>
+</button>
+
+      <div class="modal-header">
+          <h3 class="modal-title">
+            Trends
+            
+          </h3>
+      </div>
+
+      <div class="modal-body">
+
+          <div class="trends-personalized content-placeholder" style="display: none;">
+  <h2 class="title">Trends tailored just for you.</h2>
+  <p>Trends offer a unique way to get closer to what you care about. They are tailored for you based on your location and who you follow.</p>
+  <p class="placeholder-actions">
+    <button type="button" class="btn customize-by-location">Change</button>
+    <button type="button" class="btn primary-btn done">Keep tailored Trends</button>
+  </p>
+</div>
+
+        <div class="trends-dialog-error">
+          <p></p>
+        </div>
+
+        <div class="trends-wrapper" id="trends_dialog_content">
+          
+          <div class="loading">
+            <span class="spinner-bigger"></span>
+          </div>
+        </div>
+      </div>
+        <div class="modal-footer trends-by-location" style="display: none;">
+            <button type="button" class="btn select-default" data-personalized="true">Get tailored Trends</button>
+<button type="button" class="btn primary-btn done">Done</button>
+
+        </div>
+    </div>
+  </div>
+</div>
+
+      <div id="avatar_confirm_remove_dialog" class="modal-container profile-edit-message hidden">
+  <div class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Remove photo?</h3>
+      </div>
+      <div class="modal-body">
+        <p class="profile-message">Your profile photo helps people identify you.<br>Do you really want to remove it?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn primary-btn ok-btn">Remove photo</button>
+        <button class="btn cancel-btn js-close">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div id="header_confirm_remove_dialog" class="modal-container profile-edit-message hidden">
+  <div class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Remove header photo?</h3>
+      </div>
+      <div class="modal-body">
+        <p class="profile-message">Your header photo makes your profile more personal.<br>Do you really want to remove it?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn primary-btn ok-btn">Remove header</button>
+        <button class="btn cancel-btn js-close">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div id="profile_image_upload_dialog" class="modal-container image-upload-dialog">
+  <div class="close-modal-background-target"></div>
+  <div class="modal draggable profile-avatar-modal">
+    <div class="modal-content">
+      <button type="button" class="modal-btn modal-close js-close">
+  <span class="Icon Icon--close Icon--medium">
+    <span class="visuallyhidden">Close</span>
+  </span>
+</button>
+
+      <div class="modal-header">
+        <h3 class="modal-title">Position and size your photo</h3>
+      </div>
+      <div class="modal-body">
+        <div class="upload-frame image-upload-webcam" style="display: none;">
+          <div class="webcam-container"></div>
+          <canvas class="webcam-canvas" height="240" width="320" style="display:none"></canvas>
+          <video autoplay=""></video>
+          <div class="video-overlay">
+            <div class="u-textCenter video-countdown"></div>
+          </div>
+          <div class="video-permission-explain" style="display:none">
+            <h4>Starting webcam...</h4>
+            <br>
+              Choose "accept" or "allow" in your browser to continue taking a photo for your Twitter profile.
+          </div>
+          <div class="video-permission-fail" style="display:none">
+            Uh oh...it looks like you don't have a webcam or we were unable to get permission to use your webcam. Please close this window and upload a photo instead.
+          </div>
+        </div>
+        <div class="upload-frame clearfix image-upload-crop" style="display: none">
+          <span class="spinner-bigger crop-spinner" style="display: none"></span>
+          <div class="crop-zone cropper-avatar-size">
+            <div class="cropper-mask">
+              <div class="cropper-overlay"></div>
+              <img class="crop-image" alt="">
+            </div>
+            <div class="cropper-slider-outer">
+              <span class="icon image-gray"></span><div class="cropper-slider"></div><span class="icon image-gray-large"></span>
+            </div>
+          </div>
+        </div>
+        <div style="display: none;">
+          <canvas class="drawsurface"></canvas>
+        </div>
+        <div class="upload-frame clearfix image-upload-spinner"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn profile-image-cancel js-close">Cancel</button>
+        <button type="button" class="btn profile-image-previous" style="display: none">Retake Photo</button>
+        <button type="button" class="btn primary-btn profile-image-capture-webcam" disabled="" style="display: none">Take picture</button>
+        <button type="button" class="btn primary-btn profile-image-save" style="display: none">Apply</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          </div>    

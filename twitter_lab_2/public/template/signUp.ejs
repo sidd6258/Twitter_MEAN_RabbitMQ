@@ -1,0 +1,221 @@
+<link rel='stylesheet' href='/stylesheets/twitterSignUp.css' />
+ <link rel="stylesheet" type="text/css" media="all" href="/stylesheets/style1.css">
+
+    <div id="doc" class="route-signup" ng-controller="SignUpController">
+        <div class="topbar js-topbar">
+
+
+  <div class="global-nav global-nav--newLoggedOut" data-section-term="top_nav">
+    <div class="global-nav-inner">
+    <div class="StreamsHero-image" style="background-image: url(https://abs.twimg.com/a/1457566999/img/t1/lohp_streams_header_bg_v4.png);"></div>
+      <div class="container">
+<ul class="nav js-global-actions" role="navigation" id="global-actions" style="
+    margin-left: 400px">
+  <li id="global-nav-home" class="home" data-global-action="home" style="
+    left: 160px;
+">
+    <a class="js-nav js-tooltip js-dynamic-tooltip" data-placement="bottom" href="/" data-component-context="home_nav" data-nav="home" data-original-title="">
+      <span class="Icon Icon--bird Icon--large" style="color:white"></span>
+      
+    </a>
+  </li>
+    
+</ul>
+        
+
+<div class="pull-right">
+ 
+
+
+  
+    <ul class="nav secondary-nav session-dropdown" id="session">
+      <li class="dropdown js-session">
+      <!-- <a href="#loginmodal" class="flatbtn" id="modaltrigger"> -->
+          <a href="#loginmodal" class="dropdown-toggle js-dropdown-toggle dropdown-signin" id="modaltrigger" data-nav="login" role="button" aria-haspopup="true"> 
+            <small>Have an account?</small> <span class="emphasize"> Log in</span><span class="caret"></span>
+          </a>
+          <div class="dropdown-menu dropdown-form" id="signin-dropdown">
+            <div class="dropdown-caret right"> <span class="caret-outer"></span> <span class="caret-inner"></span> </div>
+            <div class="signin-dialog-body">
+              <div>Have an account?</div>
+              <form action="https://twitter.com/sessions" class="LoginForm js-front-signin" method="post" data-component="login_callout" data-element="form" >
+  <div class="LoginForm-input LoginForm-username">
+    <input type="text" class="text-input email-input js-signin-email" name="session[username_or_email]" autocomplete="username" placeholder="Phone, email or username">
+  </div>
+
+  <div class="LoginForm-input LoginForm-password">
+    <input type="password" class="text-input" name="session[password]" placeholder="Password" autocomplete="current-password">
+  </div>
+
+  <div class="LoginForm-rememberForgot">
+    <label>
+      <input type="checkbox" value="1" name="remember_me" checked="checked">
+      <span>Remember me</span>
+    </label>
+    <span class="separator">·</span>
+    <a class="forgot" href="/account/begin_password_reset">Forgot password?</a>
+  </div>
+
+  <input type="submit" class="submit btn primary-btn js-submit" value="Log in">
+
+   
+</form>
+
+              <hr>
+              <div class="signup SignupForm">
+                <div class="SignupForm-header">New to Twitter?</div>
+                <a href="https://twitter.com/signup" role="button" class="SignupForm-submit u-block u-textCenter js-signup btn" data-component="signup_callout" data-element="dropdown">Sign up
+                </a>
+              </div>
+            </div>
+          </div>
+      </li>
+    </ul>
+</div>
+<!--  -->
+</div>
+</div>
+</div>
+</div>
+<div id="page-outer">
+          <div id="page-container" class="AppContent wrapper wrapper-signup">
+              
+            
+<div class="page-canvas">
+  <div class="signup-wrapper">
+       <h1 style="
+    margin-bottom: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+">
+          Join Twitter today.
+        </h1>
+
+    <form id="phx-signup-form" ng-submit="signup();" class="t1-form signup " name="SignUpForm">
+
+
+  <div class="textbox">
+
+    <div class="prompt name">
+  <div class="field" data-fieldname="name">
+    <div class="sidetip">
+      <p class="ok isaok">&nbsp;</p>
+      <p class="blank invalid error" role="alert">What's your name?</p>
+      <p class="notwitter error" role="alert">Your full name can't include the word "Twitter".</p>
+    </div>
+    <input required id="fname" type="text" autocomplete="off" value="" ng-model="fname" name="fname" maxlength="20" aria-required="true" placeholder="First Name" class="" style="margin-bottom: 15px;">
+    <br>
+    <input required id="lname" type="text" autocomplete="off" value="" ng-model="lname" name="lname" maxlength="20" aria-required="true" placeholder="Last Name" class="" style="margin-bottom: 15px;">
+    <br>
+    <input required id="dob" type="text" autocomplete="off" value="" ng-model="dob" name="dob" maxlength="20" aria-required="true" placeholder="Date Of Birth" class="" style="margin-bottom: 15px;">
+    <br>
+    <input required id="handle" type="text" autocomplete="off" value="" ng-model="handle" name="handle" maxlength="20" aria-required="true" placeholder="Twitter Handle" class="" style="margin-bottom: 15px;">
+    <br>
+    <input required id="location" type="text" autocomplete="off" value="" ng-model="location" name="location" maxlength="20" aria-required="true" placeholder="Location" class="" style="margin-bottom: 15px;">
+    <br>
+    <input required id="phoneNumber" type="text" autocomplete="off" value="" ng-model="phoneNumber" name="phoneNumber" maxlength="20" aria-required="true" placeholder="Phone Number" class="">    
+  </div>
+</div>
+
+      <div class="prompt email">
+  <div class="field" data-fieldname="email">
+    <div class="sidetip">
+      <p class="ok isaok">&nbsp;</p>
+      <p class="checking">Validating...</p>
+      <p class="invalid error" role="alert">Please enter a valid email.</p>
+      <p class="invalid_phone error" role="alert">Please enter a valid phone number.</p>
+      <p class="blank error" role="alert">Please enter a valid phone number or email.</p>
+      <p class="taken error " role="alert">This email is already registered. Want to <a href="/login">login</a> or <a href="/account/begin_password_reset">recover your password</a>?</p>
+      <p class="phone_taken error" role="alert">We cannot currently register this phone number. Please try signing up with email instead.</p>
+      <p class="domain">Did you mean <em><a role="button" class="js-email-correction" href="#"></a></em>?</p>
+    </div>
+    <input required id="email" class="email-input"  ng-model="username" type="email" autocomplete="off" value="" name="username" aria-required="true" placeholder="Email">
+    
+  </div>
+</div>
+
+    <div class="prompt password">
+  <div class="field" data-fieldname="password">
+    <div class="sidetip">
+        <p class="ok isaok perfect weak">&nbsp;</p>
+        <p class="weak error" role="alert">Please enter a stronger password.</p>
+        <p class="obvious error" role="alert">Please enter a stronger password.</p>
+        <p class="invalid error" role="alert">Your password must be at least 6 characters.</p>
+        <p class="blank error" role="alert">Please enter a password.</p>
+    </div>
+    <input required id="password" type="password"  ng-model="password"  value="" name="password" aria-required="true" placeholder="Password">
+  </div>
+    <div class="score"><span><b class="fill"></b></span></div>
+</div>
+
+      <div class="prompt optin">
+  <label class="t1-label">
+    <input type="checkbox" checked="checked" name="user[use_cookie_personalization]" value="1">
+
+    <span>Tailor Twitter based on my recent website visits. <a class="cookie-personalization-support" href="https://support.twitter.com/articles/20169421" target="_blank">Learn more</a>.</span>
+  </label>
+</div>
+
+ 
+  </div>
+
+  <div class="standby">
+    <p>Creating your account…</p>
+  </div>
+
+  <div class="doit">
+    <div class="sign-up-box">
+      <input class="submit button signup" type="submit" id="submit_button" value="Sign up">
+    </div>
+  </div>
+
+  <div class="befound">
+  <p>By signing up, you agree to the <a href="/tos" class="legal-link" target="_blank">Terms of Service</a> and <a href="/privacy" class="legal-link" target="_blank">Privacy Policy</a>, including <a href="https://support.twitter.com/articles/20170514" class="legal-link" target="_blank">Cookie Use</a>. Others will be able to find you by email or phone number when provided.</p>
+</div>
+
+ 
+
+
+  <script src="/i/js_inst" type="text/javascript"></script>
+</form>
+
+  </div>
+</div>
+          </div>
+        </div>
+</div>
+<div id="loginmodal" class="LoginDialog modal-container u-textCenter" style="z-index: 4002; display: none;">
+
+<div class="close-modal-background-target"></div>
+<!--      <div class="LoginDialog-content modal-content" role="document"> -->
+    <div class="modal-header">
+    <h1 class="modal-title" id="login-dialog-header">Twitter Login</h1>
+    </div> 
+          <div class="LoginDialog-body modal-body">
+        <div class="LoginDialog-bird">
+          <span class="Icon Icon--bird Icon--large" ></span>
+        </div>
+    <form class="LoginForm js-front-signin" id="loginform" name="loginform" method="post" action="/home" data-component="dialog" data-element="login">
+     <div class="LoginForm-input LoginForm-username">
+    <input type="text" class="text-input email-input js-signin-email" name="session[username_or_email]" autocomplete="username" placeholder="Phone, email or username">
+  </div>
+ <div class="LoginForm-input LoginForm-password">
+    <input type="password" class="text-input" name="session[password]" placeholder="Password" autocomplete="current-password">
+  </div>
+      
+  <div class="LoginForm-rememberForgot">
+    <label>
+      <input type="checkbox" value="1" name="remember_me" checked="checked">
+      <span>Remember me</span>
+    </label>
+    <span class="separator">·</span>
+    <a class="forgot" href="/account/begin_password_reset">Forgot password?</a>
+  </div>
+
+  <input type="submit" class="submit btn primary-btn js-submit" value="Log in">
+
+</form>
+</div>
+
+<!--  -->
+</div>
